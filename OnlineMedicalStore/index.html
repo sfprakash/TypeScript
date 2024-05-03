@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Store</title>
+    <link rel="stylesheet" href="CSS/style.css" type="text/CSS">
+    <script src="script.js" type="text/JavaScript"></script>
+</head>
+<body>
+    <div id="homePage">
+        <div><h1>Home</h1></div>
+        <div>
+            <button onclick="newUser();">New User</button>
+            <button onclick="existingUser();">Existing User</button>
+        </div>
+    </div>
+    <div id="newUserPage">
+        <form action="" name="signup-form">
+            <div class="form-field">
+                <div class="label-field">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" name="email" id="userEmail">
+                </div>
+            </div>
+            <div class="form-field">
+                <div class="label-field">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="password">
+                </div>
+            </div>
+            <div class="form-field">
+                <div class="label-field">
+                    <label for="cpassword">Confirm Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="cpassword" id="CFPassword">
+                </div>
+            </div>
+            <div class="form-field">
+                <div class="label-field">
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="phone" id="userPhone">
+                </div>
+            </div>
+            <div>
+                <button type="submit" onclick="SignUp();">SignUp</button>
+            </div>
+        </form>
+    </div>
+    <div id="existingUserPage">
+        <form action="" name="signin-form">
+            <div class="form-field">
+                <div class="label-field">
+                    <label for="existingUserId">UserID</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="existingUserId" id="existingUserId">
+                </div>
+            </div>
+            <div class="form-field">
+                <div class="label-field">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="password" id="existingUserPassword">
+                </div>
+            </div>
+            <div>
+                <button type="submit" onclick="SignIn();">SignIn</button>
+            </div>
+        </form>
+    </div>
+    <div id="medicinePage">
+        <div class="navbar">
+            <div class="btn"><button onclick="showMedicine();" id="medicine-btn">Medicines</button></div>
+            <div class="btn"><button>Purchase</button></div>
+            <div class="btn"><button>Cancel</button></div>
+            <div class="btn"><button>Top-Up</button></div>
+            <div class="btn"><button>Balance Check</button></div>
+        </div>
+    </div>
+    <div>
+        <table id="dataTable">
+              <tr>
+                <th class="thead">Medicine ID</th>
+                <th class="thead">Medicine Name</th>
+                <th class="thead">Count</th>
+                <th class="thead">Price</th>
+                <th class="thead">Expiry Date</th>
+                <th class="thead">Manipulate</th>
+              </tr>
+          </table>
+    </div>
+</body>
+</html>

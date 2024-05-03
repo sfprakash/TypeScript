@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#homePage{
+    display: block;
+}
+#newUserPage{
+    width: 50%;
+    height: 50vh;
+    margin: 0 auto;
+    display: none;
+}
+#existingUserPage{
+    width: 50%;
+    height: 50vh;
+    margin: 0 auto;
+    display: none;
+}
+.form-field{
+    display: flex;
+}
+.navbar{
+    width: 100%;
+    background-color: yellowgreen;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn{
+    padding: 1rem;
+    margin: auto;
+}
+#dataTable{
+    padding: 1rem;
+}
+.thead{
+    
+}
