@@ -35,6 +35,15 @@ body{
 #dataTable{
     padding: 1rem;
 }
-.thead{
-    
+#medicinePage{
+    display: none;
+}
+#medicine-info{
+    display: none;
+}
+#purchase-block{
+    display: none;
+}
+#quantity-block{
+    display: none;
 }
