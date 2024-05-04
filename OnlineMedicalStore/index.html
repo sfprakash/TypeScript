@@ -8,15 +8,15 @@
     <script src="script.js" type="text/JavaScript"></script>
 </head>
 <body>
-    <div id="homePage">
+    <div id="home-page">
         <div><h1>Home</h1></div>
         <div>
             <button onclick="newUser();">New User</button>
             <button onclick="existingUser();">Existing User</button>
         </div>
     </div>
-    <div id="newUserPage">
-        <form action="" name="signup-form">
+    <div id="new-user-page">
+        <form onsubmit="return SignUp()" action="" name="signup-form">
             <div class="form-field">
                 <div class="label-field">
                     <label for="email">Email</label>
@@ -50,11 +50,12 @@
                 </div>
             </div>
             <div>
-                <button type="submit" onclick="SignUp();">SignUp</button>
+                <button type="submit" >SignUp</button>
             </div>
         </form>
+       
     </div>
-    <div id="existingUserPage">
+    <div id="existing-user-page">
         <form action="" name="signin-form">
             <div class="form-field">
                 <div class="label-field">
@@ -78,14 +79,14 @@
             <button  onclick="SignIn();">SignIn</button>
         </div>
     </div>
-    <div id="medicinePage">
+    <div id="medicine-page">
         <div class="navbar">
             <div class="btn"><button onclick="showMedicine();" id="medicine-btn">Medicines</button></div>
             <div class="btn"><button onclick="Purchase();" id="purchase-btn">Purchase</button></div>
             <div class="btn"><button onclick="CancelOrder()" id="cancel-order-btn">Cancel</button></div>
             <div class="btn"><button onclick="OrderHistory();" id="order-history-btn">Order History</button></div>
-            <div class="btn"><button>Top-Up</button></div>
-            <div class="btn"><button>Balance Check</button></div>
+            <div class="btn"><button onclick="TopUp();">Top-Up</button></div>
+            <div class="btn"><button onclick="ShowBalance();">Balance Check</button></div>
         </div>
     </div>
     <div id="medicine-info">
@@ -112,29 +113,12 @@
     </div>
     <div id="cancel-order-block">
         <table id="cancel-order">
-            <tr>
-                <th>OrderID</th>
-                <th>UserID</th>
-                <th>MedicineID</th>
-                <th>MedicineName</th>
-                <th>OrderCount</th>
-                <th>TotalPrice</th>
-                <th>Order Status</th>
-                <th>Cancel</th>
-            </tr>
+            <!--order items will be displayed here-->
         </table>
     </div>
     <div id="order-history-block">
         <table id="order-history">
-            <tr>
-                <th>OrderID</th>
-                <th>UserID</th>
-                <th>MedicineID</th>
-                <th>MedicineName</th>
-                <th>OrderCount</th>
-                <th>TotalPrice</th>
-                <th>Order Status</th>
-            </tr>
+            <!--order history items will be displayed here-->
         </table>
     </div>
     <div id="top-up-block">
@@ -143,7 +127,7 @@
         <div><button onclick="getAmount();">Top-up</button></div>
     </div>
     <div id="show-balance-block">
-        
+        <!-- Balance Sentence-->
     </div>
 </body>
 </html>

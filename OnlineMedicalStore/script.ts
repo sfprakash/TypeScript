@@ -93,19 +93,51 @@ MedicineList.push(new MedicineInfo("Metrogel",5,50,new Date("2024-12-30")));
 MedicineList.push(new MedicineInfo("Povidin Iodin",10,50,new Date("2024-10-30")));
 
 let OrderList: Array<Order> = new Array<Order>();
-OrderList.push(new Order("UI1001","MD14","Metrogel",3,150,OrderStatus.Ordered));
+OrderList.push(new Order("MD14","UI1001","Metrogel",3,150,OrderStatus.Ordered));
+
+
+//to display pages
+// let HomePage = document.getElementById("home-page") as HTMLDivElement;
+// let NewUserPage = document.getElementById("new-user-page") as HTMLDivElement;
+// let ExistingUserPage = document.getElementById("existing-user-page") as HTMLDivElement;
+// let MedicinePage = document.getElementById("medicine-page") as HTMLDivElement;
+// let MedicineInfoPage = document.getElementById("medicine-info") as HTMLDivElement;
+// let PurchasePage = document.getElementById("purchase-block") as HTMLDivElement;
+// let QuantityPage = document.getElementById("quantity-block") as HTMLDivElement;
+// let CancelOrderPage = document.getElementById("cancel-order-block") as HTMLDivElement;
+// let OrderHistoryPage = document.getElementById("order-history-block") as HTMLDivElement;
+// let TopUpPage = document.getElementById("top-up-block") as HTMLDivElement;
+// let ShowBalancePage = document.getElementById("show-balance-block") as HTMLDivElement;
+//Display none function
+// function display()
+// {
+//     HomePage.style.display="none";
+//     NewUserPage.style.display="none";
+//     ExistingUserPage.style.display="none";
+//     MedicinePage.style.display="none";
+//     MedicineInfoPage.style.display="none";
+//     PurchasePage.style.display="none";
+//     QuantityPage.style.display="none";
+//     CancelOrderPage.style.display="none";
+//     OrderHistoryPage.style.display="none";
+//     TopUpPage.style.display="none";
+//     ShowBalancePage.style.display="none";
+// }
+
+
+
 
 function homePage()
 {
-    let homePage = document.getElementById("homePage") as HTMLDivElement;
+    let homePage = document.getElementById("home-page") as HTMLDivElement;
 
     homePage.style.display="block";
 }
 
 function newUser()
 {
-    let home = document.getElementById("homePage") as HTMLDivElement;
-    let newUser = document.getElementById("newUserPage") as HTMLDivElement;
+    let home = document.getElementById("home-page") as HTMLDivElement;
+    let newUser = document.getElementById("new-user-page") as HTMLDivElement;
 
     home.style.display="none";
     newUser.style.display="block";
@@ -120,24 +152,27 @@ function SignUp()
     let newUser1:User = new User(newUserEmail,newUserPassword,+newUserPhone);
     UserArrayList.push(newUser1);
     alert("User ID is " +newUser1.UserId);
-    // existingUser();
+    medicinePage();
+    return false
     // linkIn();
 }
 
 function existingUser()
 {
-    let home = document.getElementById("homePage") as HTMLDivElement;
-    let existingUser = document.getElementById("existingUserPage") as HTMLDivElement;
+    let home = document.getElementById("home-page") as HTMLDivElement;
+    let existingUser = document.getElementById("existing-user-page") as HTMLDivElement;
+    let newUserPage = document.getElementById("new-user-page") as HTMLDivElement;
 
     home.style.display="none";
+    newUserPage.style.display="none";
     existingUser.style.display="block";
 
 }
 
 function linkIn()
 {
-    let newUser = document.getElementById("newUserPage") as HTMLDivElement;
-    let existingUser = document.getElementById("existingUserPage") as HTMLDivElement;
+    let newUser = document.getElementById("new-user-page") as HTMLDivElement;
+    let existingUser = document.getElementById("existing-user-page") as HTMLDivElement;
 
     newUser.style.display="none";
     existingUser.style.display="block";
@@ -175,15 +210,15 @@ function SignIn()
 
 function medicinePage() {
 
-    let homePage = document.getElementById("homePage") as HTMLDivElement;
-    let existingUserPage = document.getElementById('existingUserPage') as HTMLDivElement;
-    let medicinePage = document.getElementById('medicinePage') as HTMLDivElement;
+    let homePage = document.getElementById("home-page") as HTMLDivElement;
+    let existingUserPage = document.getElementById('existing-user-page') as HTMLDivElement;
+    let medicinePage = document.getElementById('medicine-page') as HTMLDivElement;
     let greet = document.getElementById('greet') as HTMLLabelElement;
 
     homePage.style.display="none";
     existingUserPage.style.display = "none";
     medicinePage.style.display = "block";
-
+    return false;
     // greet.innerHTML = `<h3>Hello ${CurrentUserName}</h3>`;
 }
 
@@ -194,7 +229,8 @@ function showMedicine(){
     medicineInfoPage.style.display="block";
 
     let table = document.getElementById("dataTable") as HTMLTableElement;
-    let medicineBtn = document.getElementById("medicine-btn") as HTMLButtonElement;
+    table.innerHTML="";
+    // let medicineBtn = document.getElementById("medicine-btn") as HTMLButtonElement;
     let heading = document.createElement("tr");
     heading.innerHTML=`<th>${"MedicineID"}</th><th>${"Medicine Name"}</th><th>${"Medicine Count"}</th><th>${"Medicine Price"}</th><th>${"Expiry Date"}</th>`;
     table.appendChild(heading);
@@ -205,11 +241,11 @@ function showMedicine(){
         <td>${MedicineList[i].MedicineName}</td>
         <td>${MedicineList[i].MedicineCount}</td>
         <td>${MedicineList[i].MedicinePrice}</td>
-        <td>${MedicineList[i].MedicineExpiryDate.toString()}</td>`;
+        <td>${MedicineList[i].MedicineExpiryDate.toLocaleDateString("en-GB")}</td>`;
 
         table.appendChild(row);
     }
-    medicineBtn.disabled=true;
+    // medicineBtn.disabled=true;
 }
 
 function Purchase()
@@ -220,8 +256,11 @@ function Purchase()
     purchasePage.style.display="block";
 
     let table = document.getElementById("purchase-table") as HTMLTableElement;
-    let purchaseBtn = document.getElementById("purchase-btn") as HTMLButtonElement;
-
+    table.innerHTML="";
+    // let purchaseBtn = document.getElementById("purchase-btn") as HTMLButtonElement;
+    let heading = document.createElement("tr");
+    heading.innerHTML=`<th>${"MedicineID"}</th><th>${"Medicine Name"}</th><th>${"Medicine Count"}</th><th>${"Medicine Price"}</th><th>${"Expiry Date"}</th><th></th>`;
+    table.appendChild(heading);
     for(let i=0; i<MedicineList.length; i++)
     {
         let row = document.createElement("tr");
@@ -229,12 +268,12 @@ function Purchase()
         <td>${MedicineList[i].MedicineName}</td>
         <td>${MedicineList[i].MedicineCount}</td>
         <td>${MedicineList[i].MedicinePrice}</td>
-        <td>${MedicineList[i].MedicineExpiryDate.toString()}</td>
+        <td>${MedicineList[i].MedicineExpiryDate.toLocaleDateString("en-GB")}</td>
         <td><button onclick="setGlobalMedicineId('${MedicineList[i].MedicineId}');">buy</button></td>`;
 
         table.appendChild(row);
     }
-    purchaseBtn.disabled=true;
+    // purchaseBtn.disabled=true;
 }
 function setGlobalMedicineId(MedicineId)
 {
@@ -266,7 +305,19 @@ function buyMedicine(quantity:number)
 function CancelOrder()
 {
     let cancelOrderTable = document.getElementById("cancel-order") as HTMLTableElement;
-    let cancelOrderBtn = document.getElementById("cancel-order-btn") as HTMLButtonElement;
+    cancelOrderTable.innerHTML="";
+    // let cancelOrderBtn = document.getElementById("cancel-order-btn") as HTMLButtonElement;
+
+    let heading = document.createElement("tr");
+    heading.innerHTML=`<th>Order ID</th>
+    <th>User ID</th>
+    <th>Medicine ID</th>
+    <th>Medicine Name</th>
+    <th>Medicine Count</th>
+    <th>Total Price</th>
+    <th>Order Status</th>
+    <th></th>`;
+    cancelOrderTable.appendChild(heading);
 
     for(let i=0; i<OrderList.length; i++)
     {
@@ -282,7 +333,7 @@ function CancelOrder()
 
         cancelOrderTable.appendChild(row);
     }
-    cancelOrderBtn.disabled=true;
+    // cancelOrderBtn.disabled=true;
 
 }
 
@@ -300,9 +351,19 @@ function OrderCancel(OrderId)
 }
 
 function OrderHistory()
-{
+{   
     let orderHistoryTable = document.getElementById("order-history") as HTMLTableElement;
-    let orderHistoryBtn = document.getElementById("order-history-btn") as HTMLButtonElement;
+    orderHistoryTable.innerHTML="";
+    // let orderHistoryBtn = document.getElementById("order-history-btn") as HTMLButtonElement;
+    let heading = document.createElement("tr");
+    heading.innerHTML=`<th>Order ID</th>
+    <th>User ID</th>
+    <th>Medicine ID</th>
+    <th>Medicine Name</th>
+    <th>Medicine Count</th>
+    <th>Total Price</th>
+    <th>Order Status</th>`;
+    orderHistoryTable.appendChild(heading); 
 
     for(let i=0; i<OrderList.length; i++)
     {
@@ -317,12 +378,29 @@ function OrderHistory()
 
         orderHistoryTable.appendChild(row);
     }
-    orderHistoryBtn.disabled=true;
+    // orderHistoryBtn.disabled=true;
 
 }
 
+function TopUp()
+{
+    let topUpPage = document.getElementById("top-up-block") as HTMLDivElement;
+    topUpPage.style.display="block";
+}
 function getAmount()
 {
     let amount =parseInt((document.getElementById("top-up-amount") as HTMLInputElement).value);
     CurrentloggedInUser.rechargeWallet(amount);
+    alert(`Recharge Successful - Balance : ${CurrentloggedInUser.showBalance()}` );
 }
+
+function ShowBalance()
+{
+    let showBalancePage = document.getElementById("show-balance-block") as HTMLDivElement;
+    showBalancePage.style.display="block";
+
+    let line = document.createElement("p");
+    line.innerHTML=`Current Balance - ${CurrentloggedInUser.showBalance()}`;
+    showBalancePage.appendChild(line);
+}
+

@@ -2,16 +2,16 @@ body{
     margin: 0;
     padding: 0;
 }
-#homePage{
+#home-page{
     display: block;
 }
-#newUserPage{
+#new-user-page{
     width: 50%;
     height: 50vh;
     margin: 0 auto;
     display: none;
 }
-#existingUserPage{
+#existing-user-page{
     width: 50%;
     height: 50vh;
     margin: 0 auto;
@@ -35,7 +35,7 @@ body{
 #dataTable{
     padding: 1rem;
 }
-#medicinePage{
+#medicine-page{
     display: none;
 }
 #medicine-info{
@@ -45,5 +45,11 @@ body{
     display: none;
 }
 #quantity-block{
+    display: none;
+}
+#top-up-block{
+    display: none;
+}
+#show-balance-block{
     display: none;
 }
