@@ -116,12 +116,6 @@ function existingUser() {
     newUserPage.style.display = "none";
     existingUser.style.display = "block";
 }
-function linkIn() {
-    var newUser = document.getElementById("new-user-page");
-    var existingUser = document.getElementById("existing-user-page");
-    newUser.style.display = "none";
-    existingUser.style.display = "block";
-}
 function SignIn() {
     var noExistingUserIdChecker = true;
     var existingUserId = document.getElementById("existingUserId").value;
@@ -259,6 +253,7 @@ function getAmount() {
 function ShowBalance() {
     var showBalancePage = document.getElementById("show-balance-block");
     showBalancePage.style.display = "block";
+    showBalancePage.innerHTML = "";
     var line = document.createElement("p");
     line.innerHTML = "Current Balance - ".concat(CurrentloggedInUser.showBalance());
     showBalancePage.appendChild(line);

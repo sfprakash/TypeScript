@@ -169,15 +169,6 @@ function existingUser()
 
 }
 
-function linkIn()
-{
-    let newUser = document.getElementById("new-user-page") as HTMLDivElement;
-    let existingUser = document.getElementById("existing-user-page") as HTMLDivElement;
-
-    newUser.style.display="none";
-    existingUser.style.display="block";
-}
-
 function SignIn()
 {
     let noExistingUserIdChecker:boolean = true;
@@ -275,6 +266,7 @@ function Purchase()
     }
     // purchaseBtn.disabled=true;
 }
+
 function setGlobalMedicineId(MedicineId)
 {
     CurrentMedicineId = MedicineId;
@@ -282,11 +274,13 @@ function setGlobalMedicineId(MedicineId)
     quantityBlock.style.display="block";
     
 }
+
 function getQuantity()
 {
     let quantity:number = parseInt((document.getElementById("quantity") as HTMLInputElement).value);
     buyMedicine(quantity);
 }
+
 function buyMedicine(quantity:number)
 {
     for(let i=0; i<MedicineList.length; i++)
@@ -387,6 +381,7 @@ function TopUp()
     let topUpPage = document.getElementById("top-up-block") as HTMLDivElement;
     topUpPage.style.display="block";
 }
+
 function getAmount()
 {
     let amount =parseInt((document.getElementById("top-up-amount") as HTMLInputElement).value);
@@ -398,6 +393,7 @@ function ShowBalance()
 {
     let showBalancePage = document.getElementById("show-balance-block") as HTMLDivElement;
     showBalancePage.style.display="block";
+    showBalancePage.innerHTML="";
 
     let line = document.createElement("p");
     line.innerHTML=`Current Balance - ${CurrentloggedInUser.showBalance()}`;
